@@ -24,9 +24,8 @@ jobs:
       - name: npm install, build, and test
         run: |
           npm install
-          cd src/ProjectInventory.Angular/
           npm run build --if-present
-          npm run test --if-present
+        working-directory: ./src/ProductInventory.Angular
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
@@ -52,6 +51,5 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'project-tracker'
-          slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_CAF879876557410CA9F9821872F39BAB }}
-          package: .
+          package: ./src/ProjectInventory.Angular/dist/ProjectInventory
