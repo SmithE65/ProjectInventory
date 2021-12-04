@@ -52,4 +52,4 @@ jobs:
         with:
           app-name: 'project-tracker'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_CAF879876557410CA9F9821872F39BAB }}
-          package: ./src/ProjectInventory.Angular/dist/ProjectInventory
+          package: .
